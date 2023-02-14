@@ -62,12 +62,12 @@ export const AppReducer = (state, action) => {
             state.budget = action.payload;
             
             
-         //   let total_expense = 0;
-         //   state.expenses.map((item)=> {
-          //      total_expense += item.cost;
-          //      return total_expense
-          //      });
-          //  let remaining = state.budget-total_expense;
+         let total_expense = 0;
+          state.expenses.map((item)=> {
+          total_expense += item.cost;
+          return total_expense
+          });
+          let remaining = state.budget-total_expense;
             
             
 
@@ -90,7 +90,7 @@ export const AppReducer = (state, action) => {
 const initialState = {
     budget: 2000,
     expenses: [
-        { id: "Marketing", name: 'Marketing', cost: 50 },
+        { id: "Marketing", name: 'Marketing', cost: 1050 },
         { id: "Finance", name: 'Finance', cost: 300 },
         { id: "Sales", name: 'Sales', cost: 70 },
         { id: "Human Resource", name: 'Human Resource', cost: 40 },
