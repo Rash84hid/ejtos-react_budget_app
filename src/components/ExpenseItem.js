@@ -6,9 +6,12 @@ const ExpenseItem = (props) => {
     const { dispatch } = useContext(AppContext);
 
     const handleDeleteExpense = () => {
+        const expense = {
+            name: props.name,
+        };
         dispatch({
             type: 'DELETE_EXPENSE',
-            payload: props.id,
+            payload: expense,
         });
     };
 
