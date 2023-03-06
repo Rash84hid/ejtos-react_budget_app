@@ -60,16 +60,18 @@ export const AppReducer = (state, action) => {
         
             case 'SET_BUDGET':
             action.type = "DONE";
+             const total_Budget = state.expenses.reduce(
+                (previousExp, currentExp) => {
+                    return previousExp + currentExp.cost
+                },0
+            );
+            if (action.payload > 20000) {
+            alert("budget should be below 20000")
+            } else if (action.payload < total_Budget) {
+            alert ("budget cannot be below total expense")
+            } else {
             state.budget = action.payload;
-            
-            
-         let total_expense = 0;
-          state.expenses.map((item)=> {
-          total_expense += item.cost;
-          return total_expense
-          });
-          let remaining = state.budget-total_expense;
-            
+            }                    
             
 
             return {
