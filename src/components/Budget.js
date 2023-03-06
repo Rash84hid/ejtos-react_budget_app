@@ -3,11 +3,11 @@ import { AppContext } from '../context/AppContext';
 
 
 const Budget = () => {
-    const { Budget } = useContext(AppContext);
+    const { Budget, currency } = useContext(AppContext);
 
     return (
         <div className='alert alert-secondary'>
-            <span>Budget:£ <input
+            <span>Budget:{{currency}} <input
                     required='required'
                     type='number'
                     id='budget'
