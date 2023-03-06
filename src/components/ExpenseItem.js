@@ -3,7 +3,7 @@ import {AiFillMinusCircle, AiFillPlusCircle } from 'react-icons/ai';
 import { AppContext } from '../context/AppContext';
 
 const ExpenseItem = (props) => {
-    const { dispatch } = useContext(AppContext);
+    const { dispatch, currency } = useContext(AppContext);
 
     const handleDeleteExpense = () => {
         const expense = {
@@ -31,7 +31,7 @@ const ExpenseItem = (props) => {
     return (
         <tr>
         <td>{props.name}</td>
-        <td>£{props.cost}</td>
+        <td>{{currency}}{props.cost}</td>
         
         <td><AiFillPlusCircle size='1.5em' color='green' onClick={event=> increaseAllocation(props.name)}>+</AiFillPlusCircle></td>
         <td><AiFillMinusCircle size='1.5em' color='red' onClick={handleDeleteExpense}></AiFillMinusCircle></td>
